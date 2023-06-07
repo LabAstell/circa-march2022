@@ -1,0 +1,136 @@
+
+{% extends "base_generic.html" %}
+
+
+<h1> hello </h1>
+{{ themes }} <br/>
+
+{{ imagesTheme1 }}
+{{ imagesTheme2 }}
+{{ imagesTheme3 }}
+
+
+{% for theme in images %}
+	{{theme}} <br/>
+	{% endfor %}
+
+
+<div id="mainpanel">
+	<div class="container">
+		<div class="media">
+		<div class="media-body">
+			<h1 id="media-title" align="center" class="media-heading">Please select a topic below to view our selection of photographs and video, or listen to some music</h1>
+
+    <button id="closeButton" class="closebn" onclick="showDiv('closeButton','Entertainment')">Close</button>
+
+		</div>
+		<div>                     
+		<div id="cont" >                     	
+			<div class="masthead">
+			<nav>
+				<ul id="md" class="nav navbar-fixed-bottom menu-disappear" >	
+					<ul id="categories" style="display:none" class="btn-group btn-group-justified" role="group">
+						<li class="dropup btn-group " role="group">
+							<a class="dropdown-toggle btn btn-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;">Photographs</a>
+								<ul class="dropdown-menu circa-class Entertainment" style="visibility:hidden">
+									<li class="circa-button"><button id="choice" value="18" class="circa-button menu-item btn " onclick="showDiv('nightout','Entertainment')" style="font-size:xx-large;">A Night Out</button></li>		
+									<li class="circa-button" ><button  type="submit" id="choice" value="15" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Favourite TV Programs</button></li>
+									<li class="circa-button" ><button  type="submit" id="choice" value="15" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Leading Ladies</button></li>
+									<li class="circa-button" ><button  type="submit" id="choice" value="16" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Leading Men</button></li>
+								</ul>
+
+								<ul class="dropdown-menu circa-class Recreation" style="visibility:hidden">
+									<li class="circa-button" ><button  type="submit" id="choice" value="35" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Fashion</button></li>
+									<li class="circa-button" ><button  type="submit" id="choice" value="37" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Dancing</button></li>
+									<li class="circa-button" ><button  type="submit" id="choice" value="36" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Gardening</button></li>
+									<li class="circa-button" ><button  type="submit" id="choice" value="38" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Holidays</button></li>
+									<li class="circa-button" ><button  type="submit" id="choice" value="39" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Social events</button></li>
+								</ul>
+
+								<ul class="dropdown-menu circa-class Childhood" style="visibility:hidden">
+									<li class="circa-button" ><button  type="submit" id="choice" value="11" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Youth organisations</button></li>
+									<li class="circa-button" ><button  type="submit" id="choice" value="7" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">At play</button></li>
+									<li class="circa-button" ><button  type="submit" id="choice" value="8" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Hobbies</button></li>
+									<li class="circa-button" ><button  type="submit" id="choice" value="10" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Summer holidays</button></li>
+									<li class="circa-button" ><button  type="submit" id="choice" value="9" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Schooldays</button></li>
+								</ul>
+						</li>
+
+
+						<li class="dropup btn-group" role="group">
+							<a class="dropdown-toggle btn btn-lg Childhood" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;">Videos</a>
+								<ul class="dropdown-menu circa-class Entertainment" style="visibility:hidden">
+									<li class="circa-button"><button onClick="showDiv('yout','Entertainment')"  type="submit" id="choice" value="Grace Kelly weds" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Vancouver Neon</button></li>
+									
+									<li class="circa-button"><button onClick="showDiv('vid','Entertainment')"   type="submit" id="choice" value="Laurel &amp; Hardy" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Bus Depot</button></li>
+									<li class="circa-button"><button type="submit" id="choice" value="Cybermen Attack, Doctor Who (1966)" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;letter-spacing:-1.5px;">Cybermen Attack, Doctor Who (1966)</button></li>
+								</ul>
+
+								<ul class="dropdown-menu circa-class Recreation" style="visibility:hidden">
+									<li class="circa-button"><button type="submit" id="choice" value="We are the Lambeth Boys" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;letter-spacing:-1.5px;">We are the Lambeth Boys</button></li>
+									<li class="circa-button"><button type="submit" id="choice" value="Sunday by the Sea" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Sunday by the Sea</button></li>
+									<li class="circa-button"><button type="submit" id="choice" value="Holiday" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Holiday</button></li>
+								</ul>
+
+								<ul class="dropdown-menu circa-class Childhood" style="visibility:hidden">
+									<li class="circa-button"><button type="submit" id="choice" value="One Potato, Two Potato" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;letter-spacing:-1.5px;">One Potato, Two Potato</button></li>
+									<li class="circa-button"><button type="submit" id="choice" value="Trip to Hilsea Lido" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Trip to Hilsea Lido</button></li>
+									<li class="circa-button"><button type="submit" id="choice" value="We are the Lambeth Boys" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;letter-spacing:-1.5px;">We are the Lambeth Boys</button></li>
+								</ul>
+								</li>
+						</li>
+
+						<li class="dropup btn-group" role="group">
+							<a class="dropdown-toggle btn btn-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;">Music</a>
+								<ul class="dropdown-menu dropdown-menu-right circa-class Entertainment" style="visibility:hidden">
+
+									<li class="circa-button"><button  type="submit" id="choice" value="19" class="circa-button menu-item btn btn-lg" onClick="showDiv('music','Entertainment')" style="font-size:xx-large;" >Golden years</button></li>
+									<li class="circa-button"><button  type="submit" id="choice" value="20" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;" >The Entertainers</button></li>
+								</ul>
+
+								<ul class="dropdown-menu dropdown-menu-right circa-class Recreation" style="visibility:hidden">
+									<li class="circa-button"><button  type="submit" id="choice" value="40" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;" >Pop songs</button></li>
+									<li class="circa-button"><button  type="submit" id="choice" value="41" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;" >Rock n&#039; roll music</button></li>
+								</ul>
+
+								<ul class="dropdown-menu dropdown-menu-right circa-class Childhood" style="visibility:hidden">
+									<li class="circa-button"><button  type="submit" id="choice" value="12" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;" >Children&#039;s songs</button></li>
+									<li class="circa-button"><button  type="submit" id="choice" value="13" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;" >Theme tunes</button></li>
+								</ul>
+						</li>		
+					</ul>			
+
+
+
+			<div class="btn-group btn-group-justified" role="group">
+
+				<div class="btn-group">
+					<a href="#" onclick="$('#categories').show(); setInstructions();
+					setCIRCABackground('Entertainment','bg-warning'); 
+					changeVisibility('Entertainment');" class="btn-lg btn btn-warning" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;" >Entertainment </a>
+				</div>
+				<div class="btn-group">
+					<a href="#" onclick="$('#categories').show(); setInstructions();
+					setCIRCABackground('Recreation','bg-info'); 
+					changeVisibility('Recreation');" class="btn-lg btn 
+					btn-info" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;" >Recreation </a>
+				</div>
+				<div class="btn-group">
+					<a href="#" onclick="$('#categories').show(); setInstructions();
+					setCIRCABackground('Childhood','bg-danger'); 
+					changeVisibility('Childhood');" class="btn-lg btn btn-danger" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;" >Childhood </a>
+				</div>
+
+			</ul>
+		</nav>
+</div>	
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+	

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<!--meta charset="ISO-8859-1"-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CIRCA</title>
+	<!-- Fonts -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
+	<!-- Styles -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="justified-nav.css"></link> -->
+	<!-- link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"-->
+	<link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+	<link rel="stylesheet" href="components/Bootstrap-Image-Gallery-3.4.2/css/bootstrap-image-gallery.min.css">
+	<link rel="stylesheet" href="components/Gallery-master/css/blueimp-gallery.min.css">
+	<!-- link rel="stylesheet" href="components/circa.css" -->
+	<link rel="icon" type="img/png" href="https://catch.shef.ac.uk/circa/public/resources/media/logos/circa.png" />
+	<style>
+		/* Slideshow container */
+		.slideshow-container {
+
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+		.fa-btn {
+			margin-right: 6px;
+
+
+		}
+
+		#carousel-container {
+		    background-image: url('http://portfoliotheme.org/enigmatic/wp-content/uploads/sites/9/2012/07/placeholder1.jpg');
+		  background-size:cover;
+		 /* height:100%;*/
+		 /* width:100%;*/
+		      width:640px;
+                    height:360px;
+		  position: absolute;
+		}
+
+
+		#homecarousel {
+		    position:relative;
+		    float:left;
+		    margin-left:10%;
+		   /* width: 80%;*/
+		  /*  height:100%;*/
+	
+  		    width:640px;
+  	            height:360px;
+
+
+		}
+		.carousel-inner {
+		  height:100%;
+		}
+        .youtube-player iframe {
+            display: none;
+        }
+
+        .youtube-player.active iframe {
+            display: block;
+
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			background-color: rgba(255, 255, 0, 0.75); /* Transparent Yellow */
+        }
+
+		  .menu-disappear{
+		    display: block;
+		  }
+
+		  .closebn{
+	  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+		 display: none;
+		 z-index: 1000;
+			}
+
+
+</style>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
+<body onload="showDiv('nightout','Entertainment')"  id="app-layout" style="background-color:#dbe1dd">
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<!-- Branding Image -->
+				<a href="{% url 'media_content:index'  %}"  id="start" class="navbar-brand btn-xs btn-default" height="6" role="button">BACK</a>
+			</div>
+		</div>
+	</nav>
+
+
+
+
+<div id="mainpanel">
+	<div class="container">
+		<div class="media">
+		<div class="media-body">
+			<h1 id="media-title" align="center" class="media-heading"></h1>
+		   <button id="closeButton" class="closebn" onclick="showDiv('closeButton','Entertainment')">Close</button>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+
+
+$(function(){
+
+	  var scale = 0.65;
+	  $('#video').css({ width: $(window).innerWidth() * scale + 'px', height: $(window).innerHeight() * scale + 'px' });
+
+	  // If you want to keep full screen on window resize
+	  $(window).resize(function(){
+	    $('#video').css({ width: $(window).innerWidth() * scale + 'px', height: $(window).innerHeight() * scale + 'px' });
+	  });
+	});
+
+
+$(function(){
+
+	  if(document.getElementsByTagName('audio').length > 0)
+			document.getElementById("app-layout").style.backgroundImage = "url(https://catch.shef.ac.uk/circa/public/resources/media/backgrounds/music.jpg)";
+
+	  if(!!document.getElementById('video'))
+			document.getElementById("app-layout").style.backgroundImage = "";
+			
+	});
+
+
+function changeVisibility(classname){
+	var targets = document.getElementsByClassName("circa-class");
+	for(var i=0,ll=targets.length;i<ll;i++) targets[i].style.visibility="hidden";
+
+		var targets = document.getElementsByClassName(classname);
+	for(var i=0,ll=targets.length;i<ll;i++) targets[i].style.visibility="visible";
+};
+function setCIRCABackground(key, colour){
+	var filen = "";
+	if(key=="") return;
+
+	// horrible fix:
+	key = key.replace(new RegExp(String.fromCharCode(228),'g'),'&auml;');
+	key = key.replace(new RegExp(String.fromCharCode(246),'g'),'&ouml;');
+	key = key.replace(new RegExp(String.fromCharCode(229),'g'),'&aring;');
+
+	switch(key) {
+		case "Entertainment":
+		filen = "url('https://catch.shef.ac.uk/circa/public/resources/media/backgrounds/entertainment.jpg')";
+		break;
+		case "Recreation":
+		filen = "url('https://catch.shef.ac.uk/circa/public/resources/media/backgrounds/recreation.jpg')";
+		break;
+		case "Childhood":
+		filen = "url('https://catch.shef.ac.uk/circa/public/resources/media/backgrounds/childhood.jpg')";
+		break;
+
+		case "greybc":
+		filen = "url('https://img.freepik.com/free-photo/pastel-pink-vignette-concrete-textured-background_53876-129734.jpg?w=2000')";
+		break;
+
+
+
+		default:
+		filen = "";
+		break;
+	}
+
+	document.getElementById("app-layout").style.backgroundImage = filen;
+	document.getElementById("app-layout").style.backgroundRepeat = "no-repeat";
+
+	var targets = document.getElementsByClassName("current-topic-input");
+	for(var i=0,ll=targets.length;i<ll;i++) targets[i].value=key;
+		setCIRCABackgroundColour(colour);
+
+};
+function setCIRCABackgroundColour(bc){
+	if(bc=="") return;
+	var targets = document.getElementsByClassName("dropup");
+	for(var i=0,ll=targets.length;i<ll;i++) { 
+		targets[i].classList.remove("bg-warning","bg-info","bg-danger"); 
+		targets[i].classList.add(bc);
+	};
+	var targets = document.getElementsByClassName("circa-button");
+	for(var i=0,ll=targets.length;i<ll;i++){ 
+		targets[i].classList.remove("bg-warning","bg-info","bg-danger"); 
+		targets[i].classList.add(bc);	
+	};
+	var targets = document.getElementsByClassName("dropdown-menu");
+	for(var i=0,ll=targets.length;i<ll;i++){
+		targets[i].classList.remove("bg-warning","bg-info","bg-danger"); 	
+		targets[i].classList.add(bc);
+	};
+	var targets = document.getElementsByClassName("current-colour-input");
+	for(var i=0,ll=targets.length;i<ll;i++) targets[i].value=bc;	
+};
+
+function setInstructions(){
+	document.getElementById('media-title').innerHTML = "Please select from photographs, video or music, or choose another theme";
+}
+</script>
+
+
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+ 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+  <script>
+        $(function(){
+            // Activate Carousel
+            $("#nightout").carousel();
+        });
+    </script>
+
+
+
+
+
+
+<div id="nightout" class="carousel slideshow-container" data-ride="carousel" style="display:none;z-index: 1000;position:fixed;">
+    <!-- Wrapper for slides -->
+    <div id ="nightout" class="carousel-inner">
+	{% for i in images %}
+        <div class="item{% if forloop.first %} active {% endif %}">
+		<img src={{i.url}} style="max-height:80vh;" alt="Los Angeles" style="width:100%;position: relative; top: 0; left: 0; ">
+		<div class="carousel-caption"><h3>{{i.caption}}</h3><p></p></div>
+        </div>
+
+	{% endfor %}
+
+
+    </div>
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#nightout" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#nightout" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+
+</div>
+</div>
+</div>
+
+
+<!-- JavaScripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="components/Bootstrap-Image-Gallery-3.4.2/js/bootstrap-image-gallery.min.js"></script>
+<script src="components/Gallery-master/js/blueimp-gallery.min.js"></script>
+
+<script>
+
+	function showDiv(classname,current_background) {
+
+
+
+
+		var display = document.getElementById(classname).style.display;
+		if (display == "none") {
+			document.getElementById(classname).style.display = "block";
+		}
+		else {
+			document.getElementById(classname).style.display = "none"
+		}
+
+		if (classname == 'closeButton'){
+			document.getElementById('music').style.display = "none";
+			document.getElementById('yout').style.display = "none";
+			document.getElementById('vid').style.display = "none";
+
+			document.getElementById('nightout').style.display = "none";
+		}
+
+		var display2 = document.getElementById('media-title').style.display;
+		if (display2 == "none") {
+			document.getElementById('media-title').style.display = "block";
+			setCIRCABackground(current_background,'bg-warning'); 
+			document.getElementById('md').style.display = "block";
+			document.getElementById('closeButton').style.display = "none";
+
+		}
+		else {
+			document.getElementById('media-title').style.display = "none"
+			setCIRCABackground('greybc','bg-warning'); 
+			document.getElementById('md').style.display = "none"
+			document.getElementById('closeButton').style.display = "block";
+
+
+		}
+
+
+
+	}
+
+
+    jQuery('.youtube-player').each(function(){
+    jQuery(this).on('click', '.youtube-link-start', function(){
+        jQuery(this).parent().addClass('active');
+
+        var loc = $(this).siblings('iframe').attr('src');
+        var startloc = loc + "?autoplay=1";
+        $(this).siblings('iframe').attr('src', startloc);
+    });
+
+    jQuery(this).on('click', '.youtube-link-stop', function(){
+        jQuery(this).parent().removeClass('active');
+
+        var loc = $(this).siblings('iframe').attr('src');
+        var stoploc = loc.replace("?autoplay=1", "");
+        $(this).siblings('iframe').attr('src', stoploc);
+    });
+});
+
+
+</script>
+</body>
+</html>
+
+
+
+

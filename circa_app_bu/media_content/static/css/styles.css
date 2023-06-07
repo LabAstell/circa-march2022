@@ -1,0 +1,63 @@
+
+		/* Slideshow container */
+		.slideshow-container {
+
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+		.fa-btn {
+			margin-right: 6px;
+
+
+		}
+
+		#carousel-container {
+		    background-image: url('http://portfoliotheme.org/enigmatic/wp-content/uploads/sites/9/2012/07/placeholder1.jpg');
+		  background-size:cover;
+		  height:100%;
+		  width:100%;
+		  position: absolute;
+		}
+
+
+		#homecarousel {
+		    position:relative;
+		    float:left;
+		    margin-left:10%;
+		    width: 80%;
+		    height:100%;
+		}
+		.carousel-inner {
+		  height:100%;
+		}
+        .youtube-player iframe {
+            display: none;
+        }
+
+        .youtube-player.active iframe {
+            display: block;
+
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			background-color: rgba(255, 255, 0, 0.75); /* Transparent Yellow */
+        }
+
+		  .menu-disappear{
+		    display: block;
+		  }
+
+		  .closebn{
+	  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+		 display: none;
+		 z-index: 1000;
+			}
+

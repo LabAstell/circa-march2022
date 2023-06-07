@@ -1,0 +1,154 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+<body id="app-layout" style="background-color:#dbe1dd">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Branding Image -->
+                <a id="start" class="navbar-brand btn-xs btn-default" height="6" role="button">CIRCA</a>
+            </div>
+        </div>
+    </nav>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<div id="mainpanel">
+<div class="container">
+<div class="media">
+  <div class="media-body">
+       <h1 id="media-title" align="center" class="media-heading">请在下面选择一个主题，查看相关的照片，视频或者听一些音乐。</h1>
+  </div>
+
+  <div>                     
+  <div id="cont" >                      
+  <div class="masthead">
+  <nav>
+  <ul id="md" class="nav navbar-fixed-bottom menu-disappear" >    
+	<ul id="categories" style="display:none" class="btn-group btn-group-justified" role="group">
+        <li class="dropup btn-group " role="group">
+	<a class="dropdown-toggle btn btn-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;">照片</a>
+		<ul class="dropdown-menu circa-class themeA"  style="visibility:hidden">
+		{% for subtheme in subthemeA_I %}
+		<a class="dropdown-toggle btn btn-lg" href="{% url 'media_content_CN:image_detail_CN' subtheme.pk  %}"  style="font-size:xx-large;">{{subtheme.name}}</a>
+		{% endfor %}
+		</ul>
+		
+		<ul class="dropdown-menu circa-class themeB" style="visibility:hidden">
+                {% for subtheme in subthemeB_I %}
+                	<a class="dropdown-toggle btn btn-lg" href="{% url 'media_content_CN:image_detail_CN' subtheme.pk  %}"  style="font-size:xx-large;">{{subtheme.name}}</a>
+                {% endfor %}
+		</ul>
+                
+		<ul class="dropdown-menu circa-class themeC" style="visibility:hidden">
+                
+      		{% for subtheme in subthemeC_I %}
+                	<a class="dropdown-toggle btn btn-lg" href="{% url 'media_content_CN:image_detail_CN' subtheme.pk  %}"  style="font-size:xx-large;">{{subtheme.name}}</a>
+                {% endfor %}
+
+		</ul>
+             </li>
+
+          <li class="dropup btn-group" role="group">
+          <a class="dropdown-toggle btn btn-lg " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;">视频</a>
+	  <ul class="dropdown-menu circa-class themeA" style="visibility:hidden">
+	  {% for subtheme in subthemeA_V %}
+               		<a class="dropdown-toggle btn btn-lg" href="{% url 'media_content_CN:video_detail_CN' subtheme.pk  %}"  style="font-size:xx-large;">{{subtheme.name}}</a>
+          {% endfor %}
+	  </ul>
+
+	  <ul class="dropdown-menu circa-class themeB" style="visibility:hidden">
+	  {% for subtheme in subthemeB_V %}
+                        <a class="dropdown-toggle btn btn-lg" href="{% url 'media_content_CN:video_detail_CN' subtheme.pk  %}"  style="font-size:xx-large;">{{subtheme.name}}</a>
+          {% endfor %}
+	  </ul>
+
+	  <ul class="dropdown-menu circa-class themeC" style="visibility:hidden">
+          {% for subtheme in subthemeC_V %}
+                        <a class="dropdown-toggle btn btn-lg" href="{% url 'media_content_CN:video_detail_CN' subtheme.pk  %}"  style="font-size:xx-large;">{{subtheme.name}}</a>
+          {% endfor %}
+          </ul>
+
+          <li class="dropup btn-group" role="group">
+          <a class="dropdown-toggle btn btn-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;">音乐</a>
+          <ul class="dropdown-menu dropdown-menu-right circa-class themeA" style="visibility:hidden">
+	  {% for subtheme in subthemeA_A %}
+                        <a class="dropdown-toggle btn btn-lg" href="{% url 'media_content_CN:audio_detail_CN' subtheme.pk  %}"  style="font-size:xx-large;">{{subtheme.name}}</a>
+          {% endfor %}
+	  </ul>
+         
+	  <ul class="dropdown-menu dropdown-menu-right circa-class themeB" style="visibility:hidden">
+          {% for subtheme in subthemeB_A %}
+                        <a class="dropdown-toggle btn btn-lg" href="{% url 'media_content_CN:audio_detail_CN' subtheme.pk  %}"  style="font-size:xx-large;">{{subtheme.name}}</a>
+          {% endfor %}
+	  </ul>
+         
+    	  <ul class="dropdown-menu dropdown-menu-right circa-class themeC" style="visibility:hidden">
+          {% for subtheme in subthemeC_A %}
+                        <a class="dropdown-toggle btn btn-lg" href="{% url 'media_content_CN:audio_detail_CN' subtheme.pk  %}"  style="font-size:xx-large;">{{subtheme.name}}</a>
+          {% endfor %}
+          </ul>
+
+
+
+
+	  <ul class="dropdown-menu dropdown-menu-right circa-class Childhood" style="visibility:hidden">
+          
+	  </ul>
+          </li>        
+           </ul>            
+
+
+               <div class="btn-group btn-group-justified" role="group">
+		
+		<div class="btn-group">
+			<a href="#" onclick="$('#categories').show(); 
+			       setInstructions();
+			       setCIRCABackground('themeA' , 'bg-danger'); 
+			       changeVisibility('themeA'); 
+			       "class="btn-lg btn btn-danger" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;" >{{ themeA }}</a>
+               	</div>
+
+		<div class="btn-group">
+                        <a href="#" onclick="$('#categories').show(); 
+                               setInstructions();
+                               setCIRCABackground('themeB' , 'bg-info'); 
+                               changeVisibility('themeB'); 
+                               "class="btn-lg btn btn-info" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;" >{{ themeB }}</a>
+               </div>
+
+	       <div class="btn-group">
+                        <a href="#" onclick="$('#categories').show(); 
+                               setInstructions();
+                               setCIRCABackground('themeC' , 'bg-warning'); 
+                               changeVisibility('themeC'); 
+                               "class="btn-lg btn btn-warning" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;" >{{ themeC }}</a>
+               </div>
+
+
+
+
+
+
+           </ul>
+       </nav>
+   </div>   
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<!-- JavaScripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="components/Bootstrap-Image-Gallery-3.4.2/js/bootstrap-image-gallery.min.js"></script>
+<script src="components/Gallery-master/js/blueimp-gallery.min.js"></script>
+{% endblock %}

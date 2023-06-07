@@ -1,0 +1,23 @@
+<h1> hello </h1>
+
+{% for v in imagesThemeA %}
+	<p> {{ v.image_set }} </p>
+{% endfor %}
+
+
+
+
+{% for x in subtheme %}
+   <p> {{ x.image_set }} </p>
+   {% for i in x.image_set.all %}
+   <p> {{ i.caption }}</p>
+   <img src={{ i.path }}>
+   {% endfor %}
+{% endfor %}
+
+
+
+
+
+
+

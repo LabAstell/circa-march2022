@@ -1,0 +1,194 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+<body id="app-layout" style="background-color:#dbe1dd">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Branding Image -->
+                <a id="start" class="navbar-brand btn-xs btn-default" height="6" role="button">CIRCA</a>
+            </div>
+        </div>
+    </nav>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+    <iframe id="vid", class="slideshow-container" width="560" height="315" src="https://imagestestcirca.s3.amazonaws.com/Movies/A+night+on+the+town.m4v" frameborder="0" allowfullscreen style="display:none" ></iframe>
+
+    <iframe id="yout", class="slideshow-container" width="560" height="315" src="https://www.youtube.com/embed/cG4T4R6I8OE" frameborder="0" allowfullscreen style="display:none" ></iframe>
+
+
+    <div id="nightout" class="carousel slideshow-container" data-ride="carousel" style="display:none;z-index: 1000;position:fixed;">
+       <!-- Wrapper for slides -->
+       <div id ="nightout" class="carousel-inner">
+          <div class="item active">
+             <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" alt="Los Angeles" style="width:100%;position: relative; top: 0; left: 0; ">
+             <div class="carousel-caption"><h3>Los Angeles</h3><p>LA is always so much fun!</p></div>
+         </div>
+     </div>
+     <!-- Left and right controls -->
+     <a class="left carousel-control" href="#nightout" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#nightout" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+<div id="music" class="slideshow-container" style="display: none;">
+    <iframe  src="https://open.spotify.com/embed/track/44AyOl4qVkzS48vBsbNXaC" width="60%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" style="margin-right: 1em;"></iframe>
+
+    <h3 style="color: white;"> Elvis Presley - Can't Help Falling in Love</h3>
+    <p></p>
+    <p></p>
+    <p></p>
+    <iframe  src="https://imagestestcirca.s3.amazonaws.com/Music/Flowers+that+Bloom.mp3" width="60%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" style="margin-right: 1em;"></iframe>
+    <h3 style="color: white;"> The Mikado - The Flowers That Bloom in the Spring, Tra La</h3>
+
+</div>
+
+<script type="text/javascript">
+
+
+
+</script>
+
+
+<div id="mainpanel">
+<div class="container">
+<div class="media">
+  <div class="media-body">
+       <h1 id="media-title" align="center" class="media-heading">Please select a topic below to view our selection of photographs and video, or listen to some music</h1>
+       <button id="closeButton" class="closebn" onclick="showDiv('closeButton','Entertainment')">Close</button>
+  </div>
+
+  <div>                     
+  <div id="cont" >                      
+  <div class="masthead">
+  <nav>
+  <ul id="md" class="nav navbar-fixed-bottom menu-disappear" >    
+	  <ul id="categories" style="display:none" class="btn-group btn-group-justified" role="group">
+            <li class="dropup btn-group " role="group">
+	    <a class="dropdown-toggle btn btn-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;">Photographs</a>
+	    <ul class="dropdown-menu circa-class themeA"  style="visibility:hidden">
+
+    <ul class="dropdown-menu circa-class themeA"  style="visibility:hidden">
+
+                {% for subtheme in imagesThemeA %}
+                <li class="circa-button"><button id="choice" value="18" class="circa-button menu-item btn" style="font-size:xx-large;">{{ subtheme.name }}</button></li>
+                {% endfor %}
+
+                </ul>
+
+
+
+
+		
+		<ul class="dropdown-menu circa-class themeB" style="visibility:hidden">
+		{% for subtheme in imagesThemeB %}
+		<li class="circa-button" ><button type="submit" id="choice" value="35" class="circa-button menu-item btn btn-lg" onclick="showDiv({{subtheme.subtheme}},'themeB')" style="font-size:xx-large;">{{ subtheme.subtheme  }}</button></li>
+		{% endfor %}
+		</ul>
+
+                <ul class="dropdown-menu circa-class themeC" style="visibility:hidden">	
+		{% for subtheme in imagesThemeC %}
+		<li class="circa-button" ><button  type="submit" id="choice" value="11" class="circa-button menu-item btn btn-lg" onclick="showDiv('image_tb','themeC')" style="font-size:xx-large;">{{ subtheme.subtheme }}</button></li>
+		{% endfor  %}
+
+
+		</ul>
+             </li>
+
+                           <li class="dropup btn-group" role="group">
+                             <a class="dropdown-toggle btn btn-lg Childhood" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;">Videos</a>
+                             <ul class="dropdown-menu circa-class Entertainment" style="visibility:hidden">
+                               <li class="circa-button"><button onClick="showDiv('yout','Entertainment')" type="submit" id="choice" value="Grace Kelly weds" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Vancouver Neon</button></li>
+                               <li class="circa-button"><button onClick="showDiv('vid','Entertainment')" type="submit" id="choice" value="Laurel &amp; Hardy" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;">Bus Depot</button></li>
+                           </ul>
+
+                           <ul class="dropdown-menu circa-class Recreation" style="visibility:hidden">
+                               <li class="circa-button"><button type="submit" id="choice" value="We are the Lambeth Boys" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;letter-spacing:-1.5px;">We are the Lambeth Boys</button></li>
+                           </ul>
+
+                           <ul class="dropdown-menu circa-class Childhood" style="visibility:hidden">
+                               <li class="circa-button"><button type="submit" id="choice" value="One Potato, Two Potato" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;letter-spacing:-1.5px;">One Potato, Two Potato</button></li>
+                           </ul>
+                       </li>
+
+                       <li class="dropup btn-group" role="group">
+                         <a class="dropdown-toggle btn btn-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;">Music</a>
+                         <ul class="dropdown-menu dropdown-menu-right circa-class Entertainment" style="visibility:hidden">
+
+                           <li class="circa-button"><button  type="submit" id="choice" value="19" class="circa-button menu-item btn btn-lg" onClick="showDiv('music','Entertainment')" style="font-size:xx-large;" >Golden years</button></li>
+                           <li class="circa-button"><button  type="submit" id="choice" value="20" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;" >The Entertainers</button></li>
+                       </ul>
+
+                       <ul class="dropdown-menu dropdown-menu-right circa-class Recreation" style="visibility:hidden">
+                           <li class="circa-button"><button  type="submit" id="choice" value="40" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;" >Pop songs</button></li>
+                           <li class="circa-button"><button  type="submit" id="choice" value="41" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;" >Rock n&#039; roll music</button></li>
+                       </ul>
+
+                       <ul class="dropdown-menu dropdown-menu-right circa-class Childhood" style="visibility:hidden">
+                           <li class="circa-button"><button  type="submit" id="choice" value="12" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;" >Children&#039;s songs</button></li>
+                           <li class="circa-button"><button  type="submit" id="choice" value="13" class="circa-button menu-item btn btn-lg" style="font-size:xx-large;" >Theme tunes</button></li>
+                       </ul>
+                   </li>        
+               </ul>            
+
+
+               <div class="btn-group btn-group-justified" role="group">
+		
+		<div class="btn-group">
+			<a href="#" onclick="$('#categories').show(); 
+			       setInstructions();
+			       setCIRCABackground('themeA' , 'bg-danger'); 
+			       changeVisibility('themeA'); 
+			       "class="btn-lg btn btn-warning" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;" >{{ themeA }}</a>
+               	</div>
+		<div class="btn-group">
+                        <a href="#" onclick="$('#categories').show(); 
+                               setInstructions();
+                               setCIRCABackground('themeB' , 'bg-info'); 
+                               changeVisibility('themeB'); 
+                               "class="btn-lg btn btn-warning" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;" >{{ themeB }}</a>
+               </div>
+	       <div class="btn-group">
+                        <a href="#" onclick="$('#categories').show(); 
+                               setInstructions();
+                               setCIRCABackground('themeC' , 'bg-warning'); 
+                               changeVisibility('themeC'); 
+                               "class="btn-lg btn btn-warning" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:xx-large;" >{{ themeC }}</a>
+               </div>
+
+
+
+
+
+
+           </ul>
+       </nav>
+   </div>   
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<!-- JavaScripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="components/Bootstrap-Image-Gallery-3.4.2/js/bootstrap-image-gallery.min.js"></script>
+<script src="components/Gallery-master/js/blueimp-gallery.min.js"></script>
+{% endblock %}
