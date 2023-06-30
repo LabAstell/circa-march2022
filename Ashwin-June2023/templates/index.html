@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>CIRCA-ON Embedding Test</title>
+</head>
+<body>
+    <div class="top-banner">
+        <h1>CIRCA-ON</h1>
+    </div>
+
+    <div class="nav-menu">
+        <ul>
+            <li><a href="entertainment">Entertainment</a></li>
+            <li><a href="going-places">Going Places</a></li>
+            <li><a href="home_community_life">Home and Community Life</a></li>
+            <li><a href="people_events">People and Events</a></li>
+            <li><a href="sports_recreation">Sports and Recreation</a></li>
+            <li><a href="working_life">Working Life</a></li>
+            <li><a href="childhood">Childhood</a></li>
+        </ul>
+    </div>
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="gallery">
+                <div class="gallery-item">
+                    <a href="magnified/image1.jpg">
+                        <img src="{{ url_for('static', filename='image1.jpg') }}" alt="Image 1">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="magnified/image2.jpg">
+                        <img src="{{ url_for('static', filename='image2.jpg') }}" alt="Image 2">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="magnified/image3.jpg">
+                        <img src="{{ url_for('static', filename='image3.jpg') }}" alt="Image 3">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="magnified/image4.jpg">
+                        <img src="{{ url_for('static', filename='image4.jpg') }}" alt="Image 4">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="magnified/image5.jpg">
+                        <img src="{{ url_for('static', filename='image5.jpg') }}" alt="Image 5">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="magnified/image6.jpg">
+                        <img src="{{ url_for('static', filename='image6.jpg') }}" alt="Image 6">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

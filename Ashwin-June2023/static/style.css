@@ -1,0 +1,71 @@
+/* Styles for the top banner */
+.top-banner {
+    background-color: #020069;
+    color: rgb(255, 255, 255); /* Change the title color to blue */
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Styles for the navigation menu */
+.nav-menu {
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+.nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu li {
+    margin: 0 10px;
+}
+
+.nav-menu a {
+    color: #000;
+    text-decoration: none;
+    padding: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-menu a:hover {
+    border-bottom-color: #060053;
+}
+
+/* Hamburger menu styles */
+.nav-menu .menu-toggle {
+    display: none;
+}
+
+/* Gallery styles */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border: 2px solid #2a0079; /* Add border around the images */
+    transition: all 0.3s ease; /* Add transition for animation */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05); /* Apply scale animation on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Change the box shadow on hover */
+}
